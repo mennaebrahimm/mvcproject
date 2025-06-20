@@ -1,12 +1,138 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\menna\\source\\repos\\mvcproject\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{94BD62AD-BFEA-4C30-B192-267A242FA2AD}|mvcproject.csproj|c:\\users\\menna\\source\\repos\\mvcproject\\repositories\\repositoriescs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94BD62AD-BFEA-4C30-B192-267A242FA2AD}|mvcproject.csproj|solutionrelative:repositories\\repositoriescs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94BD62AD-BFEA-4C30-B192-267A242FA2AD}|mvcproject.csproj|c:\\users\\menna\\source\\repos\\mvcproject\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{94BD62AD-BFEA-4C30-B192-267A242FA2AD}|mvcproject.csproj|solutionrelative:views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94BD62AD-BFEA-4C30-B192-267A242FA2AD}|mvcproject.csproj|c:\\users\\menna\\source\\repos\\mvcproject\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{94BD62AD-BFEA-4C30-B192-267A242FA2AD}|mvcproject.csproj|solutionrelative:views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94BD62AD-BFEA-4C30-B192-267A242FA2AD}|mvcproject.csproj|c:\\users\\menna\\source\\repos\\mvcproject\\services\\services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94BD62AD-BFEA-4C30-B192-267A242FA2AD}|mvcproject.csproj|solutionrelative:services\\services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94BD62AD-BFEA-4C30-B192-267A242FA2AD}|mvcproject.csproj|c:\\users\\menna\\source\\repos\\mvcproject\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94BD62AD-BFEA-4C30-B192-267A242FA2AD}|mvcproject.csproj|solutionrelative:models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94BD62AD-BFEA-4C30-B192-267A242FA2AD}|mvcproject.csproj|c:\\users\\menna\\source\\repos\\mvcproject\\mvcproject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{94BD62AD-BFEA-4C30-B192-267A242FA2AD}|mvcproject.csproj|solutionrelative:mvcproject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Repositoriescs.cs",
+              "DocumentMoniker": "C:\\Users\\menna\\source\\repos\\mvcproject\\Repositories\\Repositoriescs.cs",
+              "RelativeDocumentMoniker": "Repositories\\Repositoriescs.cs",
+              "ToolTip": "C:\\Users\\menna\\source\\repos\\mvcproject\\Repositories\\Repositoriescs.cs",
+              "RelativeToolTip": "Repositories\\Repositoriescs.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T20:41:54.957Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\menna\\source\\repos\\mvcproject\\Views\\user\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\user\\Index.cshtml",
+              "ToolTip": "C:\\Users\\menna\\source\\repos\\mvcproject\\Views\\user\\Index.cshtml",
+              "RelativeToolTip": "Views\\user\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-20T20:41:28.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\menna\\source\\repos\\mvcproject\\Views\\admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\menna\\source\\repos\\mvcproject\\Views\\admin\\Index.cshtml",
+              "RelativeToolTip": "Views\\admin\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-20T20:41:07.061Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Services.cs",
+              "DocumentMoniker": "C:\\Users\\menna\\source\\repos\\mvcproject\\Services\\Services.cs",
+              "RelativeDocumentMoniker": "Services\\Services.cs",
+              "ToolTip": "C:\\Users\\menna\\source\\repos\\mvcproject\\Services\\Services.cs",
+              "RelativeToolTip": "Services\\Services.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T20:40:13.786Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "mvcproject",
+              "DocumentMoniker": "C:\\Users\\menna\\source\\repos\\mvcproject\\mvcproject.csproj",
+              "RelativeDocumentMoniker": "mvcproject.csproj",
+              "ToolTip": "C:\\Users\\menna\\source\\repos\\mvcproject\\mvcproject.csproj",
+              "RelativeToolTip": "mvcproject.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-20T20:35:39.192Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\menna\\source\\repos\\mvcproject\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\menna\\source\\repos\\mvcproject\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "Models\\ErrorViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T20:36:11.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
