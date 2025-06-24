@@ -2,11 +2,11 @@
 
 namespace mvcproject.Models
 {
-    public enum ProductCategory
-    {
-        Fruits=0,
-        Vegitables=1
-    }
+    //public enum ProductCategory
+    //{
+    //    Fruits=0,
+    //    Vegitables=1
+    //}
     public class Product
     { 
         public int id { get; set; }
@@ -17,7 +17,7 @@ namespace mvcproject.Models
 
         public string description { get; set; }
 
-        public ProductCategory category { get; set; }
+        public string category { get; set; }
 
         public double price { get; set; }
 

@@ -17,10 +17,14 @@ namespace mvcproject.Models
 
         //(customer)1-m(orders)
         public virtual List<Order> Orders { get; set; }
+        // (customer)1-m(notification)
+        public virtual List<Notification>  Notifications { get; set; }
 
         // 1-to-1 Navigation Properties
         public virtual Cart Cart { get; set; }
         public virtual Favourite Favourite { get; set; }
+
+        
 
 
 

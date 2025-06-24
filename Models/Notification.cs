@@ -16,6 +16,11 @@ namespace mvcproject.Models
         public string content {  get; set; }
 
         public NotificationStatus status { get; set; }
+        // 1-m (Notification - Customer) 
+        [ForeignKey("customer")]
+        public string customerId { get; set; }
+
+        public ApplicationUser customer {  get; set; }
 
     }
 }
