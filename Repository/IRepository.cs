@@ -1,6 +1,6 @@
 ﻿namespace mvcproject.Repository
 {
-    public interface IRepository
+    public interface IRepository<T> where T : class
     {
 
     }
