@@ -6,6 +6,7 @@
 }
 
 body {
+<<<<<<< HEAD
     background-color: #fefefe;
     color: #333;
     line-height: 1.6;
@@ -134,7 +135,6 @@ body {
         max-width: 1200px;
         margin: 0 auto;
     }
-/*//////////////////////////////////    */
 
 
 .feature-box {
@@ -231,7 +231,6 @@ body {
     font-size: 16px;
 }
 
-/* ÎáÝíÇÊ ÇáÕæÑ */
 .seafood-card {
     background-image: url('../images/Vegetables.jpg');  
 }
@@ -244,7 +243,6 @@ body {
 
 
 
-/*///////////////////////////////////////////////////*/
 
 .section-header {
     display: flex;
@@ -280,7 +278,7 @@ body {
 
 
 
-/*//////////////////////////*/
+
 
 
 
@@ -479,3 +477,45 @@ body {
         color: #fff3d7;
         font-weight: bold;
     }
+
+  margin-bottom: 60px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Nunito:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #F0F7EA;
+    color: #111827;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Caprasimo', cursive;
+    color: #111827;
+}
+
+.btn-primary {
+    background-color: #7BBF38;
+    border-color: #7BBF38;
+}
+
+    .btn-primary:hover {
+        background-color: #689f2c;
+        border-color: #689f2c;
+    }
+
+.card {
+    background-color: #fff3d7;
+    border: none;
+    border-radius: 12px;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #CBD5E0;
+    color: #111827;
+}
+
+.text-muted {
+    color: #4B5563 !important;
+}

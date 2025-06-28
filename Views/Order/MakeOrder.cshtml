@@ -1,0 +1,111 @@
+﻿@model MakeOrderViewModel
+
+<form asp-action="MakeOrder" method="post" id="orderForm">
+    <div class="container mt-5">
+        <div class="row g-4">
+
+            <!-- Left: Delivery Info -->
+            <div class="col-md-7">
+                <h4>Choose a saved address</h4>
+
+                <div class="mb-3">
+                    <label asp-for="SelectedAddressId" class="form-label">Saved Addresses</label>
+                    <select asp-for="SelectedAddressId" class="form-control" id="savedAddressSelect">
+                        <option value="">-- Add New Address --</option>
+                        @foreach (var addr in Model.SavedAddresses)
+                        {
+                            <option value="@addr.Id">@addr.Street, @addr.Area, @addr.City - 📞 @addr.PhoneNumber</option>
+                        }
+                    </select>
+                </div>
+
+                <div id="newAddressFields">
+                    <h5 class="mt-3">New Address</h5>
+
+                    <div class="mb-3">
+                        <label asp-for="Street" class="form-label"></label>
+                        <input asp-for="Street" class="form-control" placeholder="Street" />
+                        <span asp-validation-for="Street" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Area" class="form-label"></label>
+                        <input asp-for="Area" class="form-control" placeholder="Area" />
+                        <span asp-validation-for="Area" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="BuildingNumber" class="form-label"></label>
+                        <input asp-for="BuildingNumber" class="form-control" placeholder="Building Number" type="text" />
+                        <span asp-validation-for="BuildingNumber" class="text-danger"></span>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label asp-for="City" class="form-label"></label>
+                            <select asp-for="City" class="form-control">
+                                <option value="">Select City</option>
+                                <option>Alexandria</option>
+                                <option>Cairo</option>
+                                <option>Giza</option>
+                                <option>Aswan</option>
+                            </select>
+                            <span asp-validation-for="City" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="Country" class="form-label"></label>
+                            <select asp-for="Country" class="form-control">
+                                <option value="">Select Country</option>
+                                <option>Egypt</option>
+                            </select>
+                            <span asp-validation-for="Country" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="PhoneNumber" class="form-label"></label>
+                        <input asp-for="PhoneNumber" class="form-control" placeholder="Phone Number" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Cart Summary (unchanged) -->
+            <div class="col-md-5">
+                <h4>Cart Summary</h4>
+                @foreach (var item in Model.CartItems)
+                {
+                    <div class="border-bottom pb-2 mb-2">
+                        <strong>@item.ProductName</strong><br />
+                        Quantity: @item.Quantity × @item.UnitPrice E£ = <strong>@item.TotalPrice E£</strong>
+                    </div>
+                }
+
+                <p><strong>Subtotal:</strong> E£@Model.SubTotal</p>
+                <p><strong>Shipping:</strong> E£@Model.Shipping</p>
+                <p class="h5"><strong>Total:</strong> E£@Model.Total</p>
+
+                <button type="submit" class="btn btn-primary w-100">Place Order</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        const savedAddressSelect = document.getElementById('savedAddressSelect');
+        const newAddressFields = document.getElementById('newAddressFields');
+
+        function toggleNewAddressFields() {
+            const hasSaved = savedAddressSelect.value !== "";
+            newAddressFields.querySelectorAll("input, select").forEach(el => {
+                el.disabled = hasSaved;
+            });
+        }
+
+        savedAddressSelect.addEventListener('change', toggleNewAddressFields);
+        window.addEventListener('DOMContentLoaded', toggleNewAddressFields);
+    </script>
+}
