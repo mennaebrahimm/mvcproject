@@ -14,10 +14,10 @@ public class MakeOrderViewModel
     public string City { get; set; }
     public string Area { get; set; }
     public string Street { get; set; }
-    public int BuildingNumber { get; set; }
+    public string  BuildingNumber { get; set; }
     public string PhoneNumber { get; set; }
 
-    // ✅ المجموع الكلي
+ 
     public decimal SubTotal => CartItems?.Sum(i => i.TotalPrice) ?? 0;
 
     public decimal Shipping =>30;

@@ -66,15 +66,15 @@ namespace mvcproject.Controllers
                     Cart newCart=new Cart();
                     newCart.customerId=userId;
                     newCart.isEmpty=true;
-                    CartRepo.Add(newCart);
-                    CartRepo.Save();
+                    await CartRepo.CreateCartAsync(userId);
+                    await CartRepo.CreateCartAsync(userId);
 
                     //new favouritefor the registered customer
                     Favourite newFavourite = new Favourite();
                     newFavourite.customerId=userId;
                     newFavourite.isEmpty = true;
-                    FavouriteRepo.Add(newFavourite);
-                    FavouriteRepo.Save();
+                    await FavouriteRepo.CreateWishListAsync(userId);
+                    await FavouriteRepo.SaveAsync();
                     if (userVM.AddAddress==true)
                     {
                         Address userAdd=new Address();

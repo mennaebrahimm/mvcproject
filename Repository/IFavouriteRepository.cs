@@ -2,9 +2,14 @@
 
 namespace mvcproject.Repository
 {
-    public interface IFavouriteRepository:IRepository<Favourite>
+    public interface IFavouriteRepository : IRepository<Favourite>
     {
-        void Add(Favourite customerFavourite);
-        void Save();
+        Task<Favourite> GetWishListByUserIdAsync(string userId);
+        Task CreateWishListAsync(string userId);
+        Task AddToWishListAsync(string userId, int productId);
+        Task RemoveFromWishListAsync(string userId, int productId);
+        Task ClearWishListAsync(string userId);
+        Task SaveAsync();
+
     }
 }
