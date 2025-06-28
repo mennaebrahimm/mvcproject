@@ -1,0 +1,128 @@
+﻿@model mvcproject.ViewModel.RegisterUserWithAddressViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1 class="text-center mb-4">Create Your Account</h1>
+
+<form asp-action="Register" method="post" class="mx-auto" style="max-width: 800px;">
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+    <div class="row">
+        <!-- Left Column - Personal Info -->
+        <div class="col-md-6">
+            <div class="form-group mb-3">
+                <label asp-for="FirstName" class="form-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="LastName" class="form-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="UserName" class="form-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="ConfirmPassword" class="form-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3 form-check">
+                <input type="checkbox" class="form-check-input" asp-for="AddAddress" id="addAddressCheckbox" />
+                <label class="form-check-label" for="addAddressCheckbox">Add Shipping Address</label>
+            </div>
+        </div>
+
+        <!-- Right Column - Address Info (Conditional) -->
+        <div class="col-md-6" id="addressFields" style="display: none;">
+            <div class="form-group mb-3">
+                <label asp-for="country" class="form-label"></label>
+                <input asp-for="country" class="form-control" />
+                <span asp-validation-for="country" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="city" class="form-label"></label>
+                <input asp-for="city" class="form-control" />
+                <span asp-validation-for="city" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="area" class="form-label"></label>
+                <input asp-for="area" class="form-control" />
+                <span asp-validation-for="area" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="street" class="form-label"></label>
+                <input asp-for="street" class="form-control" />
+                <span asp-validation-for="street" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="buildingNumber" class="form-label"></label>
+                <input asp-for="buildingNumber" class="form-control" />
+                <span asp-validation-for="buildingNumber" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="phoneNumber" class="form-label"></label>
+                <input asp-for="phoneNumber" class="form-control" />
+                <span asp-validation-for="phoneNumber" class="text-danger small"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group text-center mt-4">
+        <button type="submit" class="btn btn-primary px-4 py-2">
+            Register
+        </button>
+    </div>
+
+    <div class="text-center mt-3">
+        <p>Already have an account? <a asp-action="Login">Login here</a></p>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkbox = document.getElementById('addAddressCheckbox');
+            const addressFields = document.getElementById('addressFields');
+
+            // Initial check
+            if(checkbox.checked) {
+                addressFields.style.display = 'block';
+            }
+
+            // Add event listener
+            checkbox.addEventListener('change', function() {
+                addressFields.style.display = this.checked ? 'block' : 'none';
+            });
+        });
+    </script>
+}

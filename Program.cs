@@ -1,5 +1,7 @@
-using mvcproject.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using mvcproject.Models;
+using mvcproject.Repository;
 
 namespace mvcproject
 {
@@ -11,11 +13,33 @@ namespace mvcproject
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            //session
+            builder.Services.AddSession(option => {
+                option.IdleTimeout = TimeSpan.FromMinutes(30);
+            });
+            //context
             builder.Services.AddDbContext<ProjectContext>(optionBuilder =>
             {
                 optionBuilder.UseSqlServer(builder.Configuration.GetConnectionString("cs"));
             });
+            //Identity
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>(
+               options =>
+               {
+                   options.Password.RequireNonAlphanumeric = true;
+                   options.Password.RequireLowercase=true;
+                   options.Password.RequireUppercase=true;
+                   options.Password.RequireDigit = true;
+                   options.Password.RequiredLength = 8;
+               })
+               .AddEntityFrameworkStores<ProjectContext>();
+
+            //Custom Service need to define and register
+            builder.Services.AddScoped<IAddressRepository, AddressRepository>();//register
+            builder.Services.AddScoped<ICartRepository, CartRepository>();
+            builder.Services.AddScoped<IFavouriteRepository, FavouriteRepository>();
+
+
 
             var app = builder.Build();
 
@@ -31,7 +55,7 @@ namespace mvcproject
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseSession();
             app.UseAuthorization();
 
             app.MapControllerRoute(
