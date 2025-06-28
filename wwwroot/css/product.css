@@ -1,0 +1,114 @@
+﻿body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #fff3d7;
+}
+
+h2 {
+    font-family: 'Caprasimo', cursive;
+    color: #7BBF38;
+    font-size: 2.5rem;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-outline-success {
+    color: #7BBF38;
+    border-color: #7BBF38;
+}
+
+    .btn-outline-success:hover,
+    .btn-outline-warning:hover,
+    .btn-outline-secondary:hover,
+    .btn-primary:hover {
+        background-color: #7BBF38;
+        color: white;
+        border-color: #7BBF38;
+    }
+
+.btn-outline-warning {
+    color: #FFA500;
+    border-color: #FFA500;
+}
+
+.btn-outline-secondary {
+    color: #4B5563;
+    border-color: #4B5563;
+}
+
+.btn-primary {
+    background-color: #fff3d7;
+    color: #111827;
+    border: none;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+    margin: auto;
+    border-radius: 10px;
+}
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        background-color: #ffffff;
+    }
+
+.card-title {
+    color: #4B5563;
+    font-size: 1.1rem;
+}
+
+
+
+.product-img {
+    height: 150px;
+    object-fit: contain;
+    padding: 10px;
+    background-color: white;
+}
+
+
+.custom-green {
+    color: #7BBF38 !important;
+}
+.product-card {
+      width: 300px;        
+    height: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(123, 191, 56, 0.2);
+}
+
+
+
+
+.btn-custom-green {
+    background-color: #7BBF38;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-custom-green:hover {
+        background-color: #6AAD2E;  
+    }
+
+.pagination .page-link {
+    color: #4B5563;
+    border: 1px solid #7BBF38;
+    margin: 0 2px;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #7BBF38;
+    border-color: #7BBF38;
+    color: white;
+}
+
+.pagination .page-link:hover {
+    background-color: #fff3d7;
+    color: #111827;
+}
