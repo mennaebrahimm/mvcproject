@@ -16,64 +16,65 @@ namespace mvcproject.Controllers
             _addressRepo = addressRepo;
             _cartRepo = cartRepo;
         }
-       
-        
 
-            [HttpPost]
-            public IActionResult MakeOrder(MakeOrderViewModel model)
+
+
+        [HttpPost]
+        public IActionResult MakeOrder(MakeOrderViewModel model)
+        {
+            var userId = User.FindFirst("sub")?.Value;
+            int addressId;
+
+            if (model.SelectedAddressId.HasValue)
             {
-                var userId = User.FindFirst("sub")?.Value;
-                int addressId;
-
-                if (model.SelectedAddressId.HasValue)
-                {
-                    addressId = model.SelectedAddressId.Value;
-                }
-                else
-                {
-                    var newAddress = new Address
-                    {
-                        customerId = userId,
-                        country = model.Country,
-                        city = model.City,
-                        area = model.Area,
-                        street = model.Street,
-                        buildingNumber = model.BuildingNumber,
-                        phoneNumber = model.PhoneNumber,
-                        isDeleted = false
-                    };
-                    addressId = _addressRepo.Add(newAddress).id;
-                }
-
-                var cartItems = _cartRepo.GetCartItems(userId);
-
-                var order = new Order
+                addressId = model.SelectedAddressId.Value;
+            }
+            else
+            {
+                var newAddress = new Address
                 {
                     customerId = userId,
-                    addressId = addressId,
-                    date = DateTime.Now,
-                    total = (double)model.Total,
-                    status = OrderStatus.Processing,
+                    country = model.Country,
+                    city = model.City,
+                    area = model.Area,
+                    street = model.Street,
+                    buildingNumber = int.TryParse(model.BuildingNumber, out int bn) ? bn : 0,
+
                     phoneNumber = model.PhoneNumber,
-                    OrderItems = cartItems.Select(c => new OrderItem
-                    {
-                        productId = c.ProductId
-                    }).ToList()
+                    isDeleted = false
                 };
+                addressId = _addressRepo.Add(newAddress).id;
+            }
 
-                _orderRepo.Add(order);
-                _cartRepo.ClearCart(userId);
+            var cartItems = _cartRepo.GetCartItems(userId);
 
-                return RedirectToAction("OrderSuccess");
-            
-                return View();
+            var order = new Order
+            {
+                customerId = userId,
+                addressId = addressId,
+                date = DateTime.Now,
+                total = (double)model.Total,
+                status = OrderStatus.Processing,
+                phoneNumber = model.PhoneNumber,
+                OrderItems = cartItems.Select(c => new OrderItem
+                {
+                    productId = c.ProductId
+                }).ToList()
+            };
+
+            _orderRepo.Add(order);
+            _cartRepo.ClearCart(userId);
+
+            return RedirectToAction("OrderSuccess");
+
+            return View();
         }
-   
+
         public IActionResult MakeOrder()
         {
 
-           // var userId = User.FindFirst("sub")?.Value; // أو حسب نظامك
-           string userId = "6";
+            // var userId = User.FindFirst("sub")?.Value; // أو حسب نظامك
+            string userId = "6";
             var model = new MakeOrderViewModel
             {
                 CartItems = _cartRepo.GetCartItems(userId),

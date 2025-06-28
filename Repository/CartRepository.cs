@@ -3,7 +3,7 @@ using mvcproject.Models;
 
 namespace mvcproject.Repository
 {
-    public class CartRepository:ICartRepository
+    public class CartRepository : ICartRepository
     {
         private readonly ProjectContext context;
         public CartRepository(ProjectContext context)
@@ -22,7 +22,7 @@ namespace mvcproject.Repository
             context.Carts.Add(cart);
             await context.SaveChangesAsync();
 
-            
+
         }
         public async Task<Cart?> GetCartByUserIdAsync(string userId)
         {
@@ -120,7 +120,7 @@ namespace mvcproject.Repository
             Cart cart = await GetCartByUserIdAsync(userId);
             CartItem cartItem = cart.CartItems.FirstOrDefault(i => i.productId == productId);
             Product product = await context.Products.FindAsync(productId);
-        private readonly ProjectContext Context;
+
 
             if (cartItem != null && product != null)
             {
@@ -143,23 +143,29 @@ namespace mvcproject.Repository
         {
             Cart cart = await GetCartByUserIdAsync(userId);
             var items = cart.CartItems.ToList();
-        #endregion
+            foreach (var item in items)
+            {
+                await RemoveItemFromCartAsync(userId, item.productId);
+            }
+
+        }
+
         #region make cart clear
         public void ClearCart(string userId)
         {
-            var cartId = Context.Carts
+            var cartId = context.Carts
                 .Where(c => c.customerId == userId)
                 .Select(c => c.id)
                 .FirstOrDefault();
 
-            var items = Context.CartItems.Where(c => c.cartId == cartId);
-            Context.CartItems.RemoveRange(items);
+            var items = context.CartItems.Where(c => c.cartId == cartId);
+            context.CartItems.RemoveRange(items);
         }
         #endregion
         #region list of cart items
         public List<CartItemViewModel> GetCartItems(string userId)
         {
-            var cartId = Context.Carts
+            var cartId = context.Carts
                 .Where(c => c.customerId == userId)
                 .Select(c => c.id)
                 .FirstOrDefault();
@@ -167,7 +173,7 @@ namespace mvcproject.Repository
             if (cartId == 0)
                 return new List<CartItemViewModel>();
 
-            var items = Context.CartItems
+            var items = context.CartItems
                 .Where(ci => ci.cartId == cartId)
                 .Include(ci => ci.product) // علشان تجيب بيانات المنتج
                 .Select(ci => new CartItemViewModel
@@ -185,11 +191,6 @@ namespace mvcproject.Repository
 
         #endregion
 
-            foreach (var item in items)
-            {
-                await RemoveItemFromCartAsync(userId, item.productId);
-            }
 
-        }
     }
 }

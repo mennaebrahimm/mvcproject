@@ -46,7 +46,7 @@ namespace mvcproject.Repository
                 .ThenInclude(i => i.product)
                 .FirstOrDefaultAsync(f => f.customerId == userId);
         }
-        private readonly  ProjectContext Context;
+        private readonly ProjectContext Context;
 
         public async Task CreateWishListAsync(string userId)
         {
@@ -54,15 +54,15 @@ namespace mvcproject.Repository
             {
                 customerId = userId,
                 isEmpty = true,
-                
+
             };
 
             context.Favourites.Add(favourite);
             await context.SaveChangesAsync();
 
-            
+
         }
-        
+
 
         public async Task RemoveFromWishListAsync(string userId, int productId)
         {
