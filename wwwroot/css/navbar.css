@@ -1,0 +1,252 @@
+﻿.navbar {
+    background-color: #ffffff;
+    padding: 12px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #e9ecef;
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #7BBF38;
+    text-decoration: none;
+    font-family: 'Caprasimo','cursive' ;
+        font-style: italic;
+    margin-right: 85px;
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    color: #7BBF38;
+    font-size: 0.9rem;
+}
+
+.phone-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    fill: #7BBF38;
+}
+
+.search-container {
+    flex: 1;
+    max-width: 400px;
+    margin: 0 40px;
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 40px 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    background-color: #f8f9fa;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+    .search-input:focus {
+        border-color: #7BBF38;
+        background-color: white;
+    }
+
+    .search-input::placeholder {
+        color: #6c757d;
+    }
+
+.search-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.search-icon {
+    width: 18px;
+    height: 18px;
+    fill: #6c757d;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-section {
+    display: flex;
+    align-items: center;
+    background-color: #e8f5e8;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #7BBF38;
+    font-size: 0.85rem;
+    transition: background-color 0.3s ease;
+}
+
+    .user-section:hover {
+        background-color: #d4edda;
+    }
+
+.user-icon {
+    width: 16px;
+    height: 16px;
+    fill: #7BBF38;
+    margin-right: 8px;
+}
+
+.icon-btn {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+    .icon-btn:hover {
+        background-color: #fff3d7;
+    }
+
+.heart-icon,
+.cart-icon {
+    width: 20px;
+    height: 20px;
+    fill: #7BBF38;
+}
+
+.badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background-color: #ffc107;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+}
+
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .contact-info {
+        display: none;
+    }
+
+    .search-container {
+        order: 3;
+        width: 100%;
+        margin: 10px 0 0 0;
+        max-width: none;
+    }
+
+    .navbar-right {
+        gap: 15px;
+    }
+}
+
+
+
+
+
+
+.main-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.left-nav {
+    display: flex;
+    align-items: center;
+}
+
+.btn-categories {
+    background-color: #7BBF38;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+    .nav-links li {
+        position: relative;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+    }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 150px;
+    top: 35px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+    .dropdown-content li {
+        padding: 10px;
+    }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.right-nav .shipping-msg {
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    align-items: center;
+}
+
+i {
+    width: 18px;
+    margin-right: 5px;
+    color: #7BBF38;
+}

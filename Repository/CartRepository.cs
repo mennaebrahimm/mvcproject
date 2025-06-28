@@ -5,7 +5,7 @@ namespace mvcproject.Repository
 {
     public class CartRepository:ICartRepository
     {
-        ProjectContext context;
+        private readonly ProjectContext context;
         public CartRepository(ProjectContext context)
         {
             this.context = context;
@@ -120,6 +120,7 @@ namespace mvcproject.Repository
             Cart cart = await GetCartByUserIdAsync(userId);
             CartItem cartItem = cart.CartItems.FirstOrDefault(i => i.productId == productId);
             Product product = await context.Products.FindAsync(productId);
+        private readonly ProjectContext Context;
 
             if (cartItem != null && product != null)
             {
@@ -142,6 +143,47 @@ namespace mvcproject.Repository
         {
             Cart cart = await GetCartByUserIdAsync(userId);
             var items = cart.CartItems.ToList();
+        #endregion
+        #region make cart clear
+        public void ClearCart(string userId)
+        {
+            var cartId = Context.Carts
+                .Where(c => c.customerId == userId)
+                .Select(c => c.id)
+                .FirstOrDefault();
+
+            var items = Context.CartItems.Where(c => c.cartId == cartId);
+            Context.CartItems.RemoveRange(items);
+        }
+        #endregion
+        #region list of cart items
+        public List<CartItemViewModel> GetCartItems(string userId)
+        {
+            var cartId = Context.Carts
+                .Where(c => c.customerId == userId)
+                .Select(c => c.id)
+                .FirstOrDefault();
+
+            if (cartId == 0)
+                return new List<CartItemViewModel>();
+
+            var items = Context.CartItems
+                .Where(ci => ci.cartId == cartId)
+                .Include(ci => ci.product) // علشان تجيب بيانات المنتج
+                .Select(ci => new CartItemViewModel
+                {
+                    ProductId = ci.productId,
+                    ProductName = ci.product.name,
+                    ImageUrl = ci.product.imagePath, // لو عندك صورة
+                    Quantity = ci.quantity,
+                    UnitPrice = ci.unitPrice
+                })
+                .ToList();
+
+            return items;
+        }
+
+        #endregion
 
             foreach (var item in items)
             {

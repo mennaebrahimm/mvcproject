@@ -12,5 +12,12 @@ namespace mvcproject.Repository
         Task DecreaseQuantityAsync(string userId, int productId);
         Task IncreaseQuantityAsync(string userId, int productId);
         Task<decimal> GetTotalPriceAsync(string userId);
+        
+      
+         List<CartItemViewModel> GetCartItems(string userId);
+         void ClearCart(string userId);
+        
+
+        
     }
 }

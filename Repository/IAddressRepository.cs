@@ -6,11 +6,11 @@ namespace mvcproject.Repository
     {
          List<Address> GetAll();
         Address GetById(int _id);
-
+        List<Address>  GetAddressesByUser(string customerID);
         Address GetAddressByCustomerId(string customerID);
         void AddAdresses(List<Address> addressList);
         void Delete(Address address);
-        void Add(Address address);
+        Address Add(Address address);
 
         void Save();
     }

@@ -46,6 +46,7 @@ namespace mvcproject.Repository
                 .ThenInclude(i => i.product)
                 .FirstOrDefaultAsync(f => f.customerId == userId);
         }
+        private readonly  ProjectContext Context;
 
         public async Task CreateWishListAsync(string userId)
         {

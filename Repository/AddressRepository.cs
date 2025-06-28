@@ -1,10 +1,12 @@
-﻿using mvcproject.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using mvcproject.Models;
+using System.Net;
 
 namespace mvcproject.Repository
 {
     public class AddressRepository : IAddressRepository
     {
-        ProjectContext Context;
+        private readonly ProjectContext Context;
         public AddressRepository(ProjectContext _Context) {
             Context= _Context;
         }
@@ -30,15 +32,24 @@ namespace mvcproject.Repository
         #region get address by customer id
         public Address GetAddressByCustomerId(string customerID)
         {
+            
             return Context.Addresses.FirstOrDefault(c=>c.customerId==customerID);
         }
-
+        #endregion
+        #region Get All Addresses for User
+        public List<Address> GetAddressesByUser(string customerID)
+        {
+            return Context.Addresses.Where(a => a.customerId == customerID).ToList();
+        }
         #endregion
 
+
         #region add only one address
-        public void Add(Address address)
+        public Address Add(Address address)
         {
             Context.Addresses.Add(address);
+            return address;
+
         }
         #endregion
 
@@ -65,7 +76,12 @@ namespace mvcproject.Repository
         public void Save()
         {
             Context.SaveChanges();
-        } 
+        }
+
+        public List<Address> GetAddressesByUser(int userId)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
     }

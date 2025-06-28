@@ -1,8 +1,149 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@model List<mvcproject.Models.Product>
+
+
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<div class="home">
+    <div class="content">
+        <h5>Fresh & Organic Farm Products</h5>
+        <h1>We Provide <span class="changecontent"></span></h1>
+        <p>
+            Discover the best quality organic fruits and vegetables, straight from our farm to your table. 100% natural, healthy, and eco-friendly.
+
+        </p>
+        <a href="/Product/Index">Shop Now</a>
+    </div>
 </div>
+
+
+
+<!-- Features Section -->
+<section class="features">
+    <div class="container">
+        <div class="feature-box">
+            <img src="~/Images/Section1.jpg" alt="Curated Products" />
+            <h3>Curated Products</h3>
+            <p>Carefully selected items from trusted organic farms.</p>
+        </div>
+        <div class="feature-box">
+            <img src="~/images/icon2.png" alt="Handmade" />
+            <h3>Handmade</h3>
+            <p>All products are made with love and care by hand.</p>
+        </div>
+        <div class="feature-box">
+            <img src="~/images/icon4.png" alt="100% Natural" />
+            <h3>100% Natural</h3>
+            <p>Pure ingredients with no chemicals or additives.</p>
+        </div>
+        <div class="feature-box">
+            <img src="~/images/icon3.png" alt="Shipping" />
+            <h3>Shipping</h3>
+            <p>Fast and eco-friendly delivery to your doorstep.</p>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="hot-offers">
+    <h1 class="section-title">Hot Offers</h1>
+
+    <div class="container">
+        <div class="offers-grid">
+            <div class="offer-card seafood-card">
+                <div class="card-content">
+                    <h2 class="card-title">Crisp Green Vegetables<br /> Fresh Vegetables</h2>
+                    <p class="card-subtitle">Packed with vitamins and grown organically!</p>
+                </div>
+            </div>
+
+            <div class="offer-card vegetable-card">
+                <div class="card-content">
+                    <h2 class="card-title">Fresh Fruits &<br />Fruit basket</h2>
+                    <p class="card-subtitle">Sweet, juicy, and 100% natural.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="home-products my-5 px-4">
+    <div class="section-header">
+        <h2 class="section-title" style="font-family:'Caprasimo',cursive;color:#7BBF38;">Our Products</h2>
+        <div>
+            <button class="btn btn-outline-secondary" onclick="filterProducts('Herbs')">Herbs</button>
+            <button class="btn btn-outline-success" onclick="filterProducts('Vegetables')">Vegetables</button>
+            <button class="btn btn-outline-warning" onclick="filterProducts('Fruits')">Fruits</button>
+            <button class="btn btn-outline-dark" onclick="filterProducts('All')">View All</button>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-4 g-3" id="products-container">
+        @foreach (var p in Model)
+        {
+            <div class="col product-item" data-category="@p.category">
+                <div class="mini-card">
+                    <img src="~/images/@p.imagePath" class="mini-img" alt="@p.name" />
+                    <h6 class="mt-2">@p.name</h6>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+
+
+
+<section class="subscribe-section">
+    <div class="subscribe-box">
+        <div class="subscribe-content">
+            <h2>Stay Updated with Ecoland</h2>
+            <p>Subscribe to get the latest offers, fresh arrivals, and healthy tips!</p>
+            <form>
+                <input type="email" placeholder="Enter your email" required />
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+<script>
+    function filterProducts(category){
+        const items=document.querySelectorAll('.product-item');
+        let shown=0;
+        items.forEach(item=>{
+            const cat=item.dataset.category;
+            if(category==='All'){
+                if(shown<4){ item.style.display='block'; shown++;}
+                else{ item.style.display='none'; }
+            }else{
+                if(cat===category && shown<4){ item.style.display='block'; shown++; }
+                else{ item.style.display='none'; }
+            }
+        });
+    }
+
+
+    document.addEventListener('DOMContentLoaded',()=>filterProducts('All'));
+</script>
+
+
+
+
+
