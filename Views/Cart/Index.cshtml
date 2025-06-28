@@ -1,0 +1,105 @@
+﻿@model Cart
+
+@{
+    ViewData["Title"] = "Your Cart";
+}
+
+<style>
+    a{
+        text-decoration:none;
+    }
+
+    .cart-item-box {
+        background-color: #fff3d7;
+        border: 1px solid #fff3d7;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.03);
+    }
+
+    .cart-image {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    .quantity a{
+        text-decoration:none;
+        color:#ffffff;
+        background-color:#7bbf38;
+        padding:2px 4px ;
+        text-align:center;
+        border-radius:50%
+    }
+    .color{
+        background-color:#7bbf38;
+        color:white;
+    }
+    .shopbtn{
+        border: .1px solid #7bbf38;
+
+    }
+    .shopbtn:hover{
+            background-color: #7bbf38;
+            color:white;
+    }
+</style>
+
+<h2 class="my-4">Your Cart</h2>
+
+@if (Model.CartItems == null || !Model.CartItems.Any())
+{
+    <div class="alert alert-success">Empty Cart</div>
+}
+else
+{
+    <div class="d-flex justify-content-end my-2 col-10">
+        <a asp-action="Clear" class="btn color" >Clear All</a>
+    </div>
+    <div class="cart-container container">
+        <div class="content">
+            @foreach(var item in Model.CartItems)
+            {
+                <div class=" row align-items-center ">
+                    <div class="cart-item-box col-10 d-flex align-items-center justify-content-between shadow-sm p-3 mb-4 rounded-4">
+                        <img src="~/Images/@item.product.imagePath" alt="@item.product.name" class="rounded-circle cart-image me-3" />
+
+                        <div class="d-flex align-items-center justify-content-between col-8">
+                            
+                            <h5 class="mb-1">@item.product.name</h5>
+
+                            <div class="d-flex align-items-center justify-content-around quantity">
+                                <a asp-action="Increase" asp-route-productId="@item.productId" >+</a>
+                                <span class="mx-1">@item.quantity</span>
+                                <a asp-action="Decrease" asp-route-productId="@item.productId" >-</a>
+                            </div>
+                            <div>
+                                <span class="text-end fw-bold me-3">EGP @item.unitPrice.ToString("0.00")</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center col-2">
+                        <a asp-action="Remove" asp-route-productId="@item.productId" class="text-muted">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </a>
+                    </div>
+                </div>
+
+            }
+        </div>
+        <div class="d-flex justify-content-between align-items-center col-10">
+            <a asp-action="Index" asp-controller="Product" class="btn shopbtn">
+                <i class="bi bi-arrow-left"></i> Back to Shop
+            </a>
+
+            <div>
+                <h4>
+                    Total: @Model.CartItems.Sum(i => i.unitPrice * i.quantity)
+                </h4>
+                <form asp-controller="Order" asp-action="MakeOrder" method="post">
+                    <button type="submit" class="btn color">Make Order</button>
+                </form>
+            </div>
+         </div>
+    </div>
+}
