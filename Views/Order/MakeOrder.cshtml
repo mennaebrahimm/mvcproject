@@ -14,7 +14,7 @@
                         <option value="">-- Add New Address --</option>
                         @foreach (var addr in Model.SavedAddresses)
                         {
-                            <option value="@addr.Id">@addr.Street, @addr.Area, @addr.City - 📞 @addr.PhoneNumber</option>
+                            <option value="@addr.id">@addr.street, @addr.area, @addr.city - 📞 @addr.phoneNumber</option>
                         }
                     </select>
                 </div>

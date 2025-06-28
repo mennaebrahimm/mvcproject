@@ -1,5 +1,5 @@
 ﻿body {
-    font-family: 'Nunito', sans-serif;
+/*    font-family: 'Nunito', sans-serif;*/
     background-color: #fff3d7;
 }
 
@@ -48,6 +48,17 @@ h2 {
     border-radius: 10px;
 }
 
+.card-body{
+
+    background-color:white;
+}
+
+    .card-body h5{
+
+      font-family:;
+
+    }
+
     .card:hover {
         transform: scale(1.05);
         box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
@@ -93,7 +104,7 @@ h2 {
 }
 
     .btn-custom-green:hover {
-        background-color: #6AAD2E;  
+        background-color: #7BBF38;
     }
 
 .pagination .page-link {
