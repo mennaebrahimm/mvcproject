@@ -17,7 +17,7 @@ public class MakeOrderViewModel
     public int BuildingNumber { get; set; }
     public string PhoneNumber { get; set; }
 
-    // ✅ المجموع الكلي
+ 
     public decimal SubTotal => CartItems?.Sum(i => i.TotalPrice) ?? 0;
 
     public decimal Shipping =>30;

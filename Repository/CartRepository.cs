@@ -16,6 +16,7 @@ namespace mvcproject.Repository
         public void Add(Cart cart)
         {
             Context.Carts.Add(cart);
+           
         }
         #endregion
         #region make cart clear
