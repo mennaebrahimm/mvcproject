@@ -4,7 +4,7 @@ namespace mvcproject.Repository
 {
     public class FavouriteRepository : IFavouriteRepository
     {
-        ProjectContext Context;
+        private readonly  ProjectContext Context;
 
         public FavouriteRepository(ProjectContext context)
         {

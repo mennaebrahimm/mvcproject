@@ -38,6 +38,7 @@ namespace mvcproject
             builder.Services.AddScoped<IAddressRepository, AddressRepository>();//register
             builder.Services.AddScoped<ICartRepository, CartRepository>();
             builder.Services.AddScoped<IFavouriteRepository, FavouriteRepository>();
+            builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
 
 
