@@ -92,8 +92,6 @@ namespace mvcproject.Controllers
                     }
 
 
-
-
                     //create cookie with specific claim (id ,name ,[email] ,[role])
                     return RedirectToAction("Login");
                 }
